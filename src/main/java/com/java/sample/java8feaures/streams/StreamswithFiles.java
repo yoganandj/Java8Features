@@ -17,6 +17,7 @@ public class StreamswithFiles {
                 .distinct()
                 .forEach(System.out :: println);
                 */
+        System.out.println("Hello");
 
     }
 }
