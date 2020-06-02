@@ -10,12 +10,13 @@ import java.util.stream.Stream;
 public class StreamswithFiles {
     public static void main(String s[]) throws IOException {
 
-        Stream<String> lines = Files.lines(Paths.get("C:\\Users\\pc\\IdeaProjects\\Java8LambdaAndStreams\\src\\data.txt"), Charset.defaultCharset());
+  /*      Stream<String> lines = Files.lines(Paths.get("C:\\Users\\pc\\IdeaProjects\\Java8LambdaAndStreams\\src\\data.txt"), Charset.defaultCharset());
 
         lines.map(w -> w.split(" "))
                 .flatMap(Arrays :: stream)
                 .distinct()
                 .forEach(System.out :: println);
+                */
 
     }
 }
