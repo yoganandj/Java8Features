@@ -15,6 +15,9 @@ package com.java.sample.java8feaures.function_interfaces;
 5. It suffices to understand that a lambda expression can be assigned to a variable or passed to a method
    expecting a functional interface as argument, provided the lambda expression has the same signature
    as the abstract method of the functional interface
+6. In new Java API, we’ll notice that functional interfaces are annotated with @FunctionalInterface
+7. Note that the @FunctionalInterface annotation isn’t mandatory, but it’s good practice to
+   use it when an interface is designed for that purpose
 */
 
 
