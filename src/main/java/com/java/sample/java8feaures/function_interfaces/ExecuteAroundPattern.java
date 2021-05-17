@@ -5,6 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+/*  The execute around pattern (that is, you need to execute a bit of behavior in the middle of code
+    that’s always required in a method, for example, resource allocation and cleanup) can be used
+    with lambdas to gain additional flexibility and re-usability.*/
+
 public class ExecuteAroundPattern {
 
     public static String processFile() throws IOException {

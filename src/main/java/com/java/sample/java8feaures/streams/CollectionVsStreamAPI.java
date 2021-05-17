@@ -3,14 +3,17 @@ package com.java.sample.java8feaures.streams;
 /*
 1. A collection is an in-memory data structure that holds all the values
 2. We can add things to, and remove them from, the collection
-
-3. By contrast, a stream is a conceptually fixed data structure (you can’t add or remove elements
-from it) whose elements are computed on demand
-
+3. By contrast, a stream is a conceptually fixed data structure (you can’t add or remove elements from it)
+   whose elements are computed on demand
 4. stream is like a lazily constructed
-collection: values are computed when they’re solicited by a consumer
-5. A collection is eagerly constructed (supplier-driven: fill your warehouse before you
-start selling, like a Christmas novelty that has a limited life).
+   collection: values are computed when they’re solicited by a consumer
+5. A collection is eagerly constructed (supplier-driven: fill your warehouse before you start selling,
+   like a Christmas novelty that has a limited life).
+
+6. collections are data structures, they’re mostly about storing and accessing elements with specific
+   time/space complexities (for example, an ArrayList vs. a LinkedList ). But streams are about expressing
+   computations such as filter , sorted , and map.
+   Collections are about data; streams are about computations
 
 Example :
 
@@ -33,10 +36,13 @@ to be consumed. You can get a new stream from the initial data source to travers
 like for an iterator
 
 10. Using the Collection interface requires iteration to be done by the user (for example, using
-for-each); this is called external iteration.
-The Streams library by contrast uses internal
-iteration—it does the iteration for you and takes care of storing the resulting stream value
-somewhere; you merely provide a function saying what’s to be done
+    for-each); this is called external iteration.
+    The Streams library by contrast uses internal iteration—it does the iteration for you and
+    takes care of storing the resulting stream value somewhere; you merely provide a function saying
+    what’s to be done
+
+11. The internal iteration in the Streams library can automatically choose a data representation and
+    implementation of parallelism to match your hardware
 
 
 

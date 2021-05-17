@@ -63,7 +63,7 @@ public class CollectionVsStreamAPI2 {
                 new Dish("prawns", false, 300, Type.FISH),
                 new Dish("salmon", false, 450, Type.FISH));
 
-
+        System.out.println(menu);
         Iterator iterator = menu.iterator();
 
         List<String> names = new ArrayList<>();
@@ -88,7 +88,22 @@ choose a data representation and implementation of parallelism to match your har
                 .collect(Collectors.toList());
         System.out.println(names1);*/
 
-        /*You can notice several optimizations due to the lazy nature of streams. First, despite the fact
+        /*
+        two groups of operations:
+        1. filter , map , and limit can be connected together to form a pipeline.
+        2. collect causes the pipeline to be executed and closes it.
+
+        Stream operations that can be connected are called intermediate operations, and operations
+        that close a stream are called terminal operations
+
+        Intermediate operations don’t perform any processing until a terminal operation is invoked on
+        the stream pipeline—they’re lazy. This is because intermediate operations can usually be
+        merged and processed into a single pass by the terminal operation.
+
+        Terminal operations produce a result from a stream pipeline. A result is any non-stream value
+        such as a List, an Integer, or even void
+
+        You can notice several optimizations due to the lazy nature of streams. First, despite the fact
         that many dishes have more than 300 calories, only the first three are selected! This is because
         of the limit operation and a technique called short-circuiting,   */
         List<String> names1 = menu.stream()
@@ -100,9 +115,10 @@ choose a data representation and implementation of parallelism to match your har
                     System.out.println("mapping : "+dish.getName());
                     return  dish.getName();
                 })
-              //  .limit(3)
+                .limit(3)
                 .collect(Collectors.toList());
         System.out.println(names1);
+        System.out.println(names);
 
     }
 }
