@@ -65,6 +65,38 @@ public class MonolithicVsMicroservice {
        - Retries
        - Circuit Breaking
        - Timeout
+       - Distributed Transactions
+          - Two phase commit
+            -Prepare and Commit
+            - Strong consistency
+            Problems :
+            - What happen if the co-ordinator fails?
+            - What happens if the Microservice fails to reply during the phase 1
+            Co-ordinator does not even know the state of the failed microservice
+            -  What if the microservice fails during commit phase?
+
+             In all of the above cases the resource is blocked and no others can use that resources
+
+          -3 Phase commit
+             -  Modified version of 2phase commit called 3 phase commit
+             -
+          -  2phase and 3phase commit are synchronous
+          - Sagas
+            -  Asynchronous
+            -  Queue based implementation
+            -  Sequence of local transactions
+            -  Each local transaction updates the database and published the event for the next service
+            -  if any of the local transaction fails then saga publishes COMPENSATING transactions to alll the
+               services which have performed commit
+              -  Types of transactions
+                 - Compensating transaction
+                 - Pivot transactions
+                 - Retry transactions
+             - Implementation - Choreography and Orestration
+
+            When to use Sagas
+              -  Ensure data consistency in a distributed system without tight coupling
+              -  Rollback if one of the operations in the sequence fails
      */
 
 }
